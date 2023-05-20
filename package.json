@@ -4,8 +4,9 @@
   "description": "A new version of TAMUIC app on Node + React.js",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
+    "build": "npx tsc && npm run copy-html",
     "start": "node dist/index.js",
+    "copy-html": "cpy 404.html dist",
     "start::client": "npm start --prefix client",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,7 +21,8 @@
     "mssql": "^9.1.1",
     "react-router-dom": "^6.11.1",
     "sequelize": "^6.31.0",
-    "sequelize-typescript": "^2.1.5"
+    "sequelize-typescript": "^2.1.5",
+    "tedious": "^16.1.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
@@ -28,6 +30,7 @@
     "@types/node": "^18.15.11",
     "@types/sequelize": "^4.28.14",
     "concurrently": "^8.0.1",
+    "cpy-cli": "^4.2.0",
     "nodemon": "^2.0.22",
     "typescript": "^5.0.4"
   }

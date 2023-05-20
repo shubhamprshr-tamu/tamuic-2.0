@@ -2,7 +2,8 @@ import dotenv from "dotenv";
 import express, { Express, Request, Response, response } from "express";
 import path from "path";
 import cors from "cors";
-import { db } from './database/sequelize'
+import { db } from './database/sequelize';
+import { userRouter, specimenRouter } from "./routes/apiroutes";
 
 
 dotenv.config();
@@ -16,29 +17,21 @@ app.use(basePath + '/', express.static(path.resolve(reactBuildPath)));
 // Sync database on start-up.
 //db.sequelize.sync(); - don't ever use. only needed to reflect new tables iin database.
 
+// all ui page routes.
 app.get("/tamuic/*", (req: Request, res: Response) => {
   res.sendFile(path.resolve(reactBuildPath+'/index.html'))
 })
 
-app.get('/api/specimen', async (req: Request, res: Response) => {
-    const dbResp = await db.models.Specimen.findByPk(1234567)
-    res.send(dbResp?.toJSON())
-});
+app.use('/api/specimen', specimenRouter);
 
-app.get('/api/login', async (req: Request, res: Response) => {
-
-  const dbResp = await db.models.Users.findOne({ where: {Name: 'dummy', Password: 'dummy'}, attributes: {exclude: ['UseAutofill','DateTimeStamp','Password']}})
-  console.log(dbResp?.toJSON())
-  res.json(dbResp?.toJSON())
-});
-
-app.get('/api/users', async (req: Request, res: Response) => {
-  const dbResp = await db.models.Users.findAll({where: {Active: true}, attributes: {exclude: ['UseAutofill','DateTimeStamp','Password']}})
-  console.log(JSON.stringify(dbResp));
-  res.json(JSON.stringify(dbResp));
-});
+app.use('/api/users', userRouter);
 
 const port = process.env.APP_PORT || 8000;
+
+// Error 404 page.
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(__dirname, '404.html'));
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

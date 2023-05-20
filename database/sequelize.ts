@@ -3,11 +3,11 @@ import { initModels } from "./models/init-models";
 import dotenv from 'dotenv';
 dotenv.config();
 
-console.log(process.env.DB)
+
 const sequelize = new Sequelize(
     //@ts-ignore later add type definition.
     process.env.DB,
-    process.env.USER,
+    process.env.DB_USER,
     process.env.PASSWORD,
     {
         dialect : 'mssql',
