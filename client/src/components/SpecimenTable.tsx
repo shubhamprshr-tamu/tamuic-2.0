@@ -4,13 +4,13 @@ import { Table, TableBody, TableContainer, TableHead, TableCell, TableRow, Paper
 type SpecimenDetails = {
     specimenId: string,
     groupName: string,
-    locality: string
+    collectingEventID: number
 }
 
 
-const SpecimenTable = ({specimenId, groupName }: SpecimenDetails) => {
+const SpecimenTable = ({specimenId, groupName, collectingEventID }: SpecimenDetails) => {
 
-
+    // const collectingEventDetails = ({})
     return (
         <TableContainer component={Paper}>
             <Table sx={{ border:'0.25 rem solid'}}>
@@ -47,7 +47,7 @@ const SpecimenTable = ({specimenId, groupName }: SpecimenDetails) => {
                     </TableRow>
                     <TableRow>
                         <TableCell>Date & Collectors</TableCell>
-                        <TableCell>{groupName}</TableCell>
+                        <TableCell>{collectingEventID}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell>Geography</TableCell>

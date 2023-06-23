@@ -24,7 +24,7 @@ const NavigationBar: React.FC = () => {
       </ul>
       <ul>
         <li className="logout">
-          <Link to="/logout">LOG OFF</Link>
+          <Link to="/tamuic/logout">LOG OFF</Link>
         </li>
       </ul>
     </nav>

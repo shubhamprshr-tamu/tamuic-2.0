@@ -34,7 +34,12 @@ const ViewSpecimen = ({setViewSpecimen}: {setViewSpecimen: Function}) => {
         try {
             const response = await fetch (`/api/specimen/${specimenId}`);
             const responseJson = await response.json();
-            setSpecimenDetails({specimenId: responseJson.SpecimenID, groupName: responseJson.SpecimenGroupName})
+            console.log(responseJson.CollectingEventID)
+            const responseCollectingEvent = await fetch (`/api/collectingEvent/${responseJson.CollectingEventID}`);
+            const responseCollectingEventJson = await responseCollectingEvent.json();
+            setSpecimenDetails({specimenId: responseJson.SpecimenID, groupName: responseJson.SpecimenGroupName, collectingEventID: responseJson.CollectingEventID})
+            console.log(responseCollectingEventJson)
+            console.log("check")
         } catch (e){
             console.log(e)
         }
