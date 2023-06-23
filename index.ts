@@ -3,7 +3,7 @@ import express, { Express, Request, Response, response } from "express";
 import path from "path";
 import cors from "cors";
 import { db } from './database/sequelize';
-import { userRouter, specimenRouter } from "./routes/apiroutes";
+import { userRouter, specimenRouter, collectingEventRouter } from "./routes/apiroutes";
 
 
 dotenv.config();
@@ -23,6 +23,8 @@ app.get("/tamuic/*", (req: Request, res: Response) => {
 })
 
 app.use('/api/specimen', specimenRouter);
+
+app.use('/api/collectingEvent', collectingEventRouter);
 
 app.use('/api/users', userRouter);
 
