@@ -3,6 +3,7 @@ import { Container, Link, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import ViewSpecimen from './ViewSpecimen';
+import NavigationBar from './NavigationBar';
 
 export const HomePage = () => {
     const navigate = useNavigate();
@@ -25,6 +26,7 @@ export const HomePage = () => {
             alignItems: 'center',
         }}>
             <Typography variant='h4'> Welcome to TamuIC app.</Typography>
+            <NavigationBar />
             <Link onClick={toggleViewSpecimen}>
                 <Typography variant='body1'>View Specimen</Typography>
             </Link>
