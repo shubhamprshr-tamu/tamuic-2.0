@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Typography, TextField, Button } from '@mui/material';
+import './../css/Table.css'
 
 const MyForm = () => {
   const [locality_id, setLocalityId] = useState('');
@@ -29,6 +30,9 @@ const MyForm = () => {
 
   const handleLocalityIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
+    if (inputValue.length >= 3) {
+        
+    }
     setLocalityId(inputValue);
   };
 
@@ -47,7 +51,7 @@ const MyForm = () => {
         <table>
             <tr>
                 <td>
-                    <form style={{ display: 'grid', gap: '8px', alignItems: 'center' }} onSubmit={handleSubmit}>
+                    <form className='formContainer' onSubmit={handleSubmit}>
                         <Typography variant="h5" align="center" gutterBottom>
                             Collecting Event Details
                         </Typography>
@@ -84,7 +88,7 @@ const MyForm = () => {
                     </form>
                 </td>
                 <td>
-                    <form style={{ display: 'grid', gap: '8px', alignItems: 'center' }} onSubmit={handleSubmit}>
+                    <form className='formContainer' onSubmit={handleSubmit}>
                         <Typography variant="h5" align="center" gutterBottom>
                             Locality Details
                         </Typography>

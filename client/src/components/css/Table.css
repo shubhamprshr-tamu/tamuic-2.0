@@ -1,0 +1,40 @@
+.formContainer {
+    display: grid;
+    gap: 8px;
+    align-items: center;
+    border: 2px solid black;
+    padding: 16px;
+    border-radius: 8px;
+    width: auto;
+}
+
+.div-block {
+  border: 2px solid black
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-item {
+    flex: 1;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.flex-row-block {
+  flex-direction: row;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+}
+
+.flex-col-block {
+  flex-direction: column;
+  flex-flow: column wrap;
+  justify-content: center ;
+}
+
+.specimenDetailsTableCss {
+  border: 1px solid black;
+  width: 100%;
+}

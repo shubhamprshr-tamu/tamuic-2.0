@@ -32,13 +32,63 @@ const ViewSpecimen = ({setViewSpecimen}: {setViewSpecimen: Function}) => {
 
     const fetchSpecimenDetails = async () => {
         try {
-            const response = await fetch (`/api/specimen/${specimenId}`);
+            const response = await fetch(`/api/specimen/${specimenId}`);
             const responseJson = await response.json();
-            console.log(responseJson.CollectingEventID)
-            const responseCollectingEvent = await fetch (`/api/collectingEvent/${responseJson.CollectingEventID}`);
+
+            const responseCollectingEvent = await fetch(`/api/collectingEvent/${responseJson.CollectingEventID}`);
             const responseCollectingEventJson = await responseCollectingEvent.json();
+
+            // const [
+            //     responseSpecimenAttributes,
+            //     responseSpecimenBioAttributes,
+            //     responseSpecimenDetLabels,
+            //     responseSpecimenMiscCodes,
+            //     responseLocality,
+            //     responseMethod,
+            //     responseGeoReference
+            //   ] = await Promise.all([
+            //     fetch(`/api/specimenAttributes/${specimenId}`),
+            //     fetch(`/api/specimenBioAttributes/${specimenId}`),
+            //     fetch(`/api/specimenDetLabels/${specimenId}`),
+            //     fetch(`/api/specimenMiscCodes/${specimenId}`),
+            //     fetch(`/api/locality/${responseCollectingEventJson.LocalityID}`),
+            //     fetch(`/api/locality/${responseCollectingEventJson.MethodID}`),
+            //     fetch(`/api/geoReference/${responseCollectingEventJson.LocalityID}`)
+            //   ]);
+              
+            //   const [
+            //     responseSpecimenAttributesJson,
+            //     responseSpecimenBioAttributesJson,
+            //     responseSpecimenDetLabelsJson,
+            //     responseSpecimenMiscCodesJson,
+            //     responseLocalityJson,
+            //     responseMethodJson,
+            //     responseGeoReferenceJson
+            //   ] = await Promise.all([
+            //     responseSpecimenAttributes.json(),
+            //     responseSpecimenBioAttributes.json(),
+            //     responseSpecimenDetLabels.json(),
+            //     responseSpecimenMiscCodes.json(),
+            //     responseLocality.json(),
+            //     responseMethod.json(),
+            //     responseGeoReference.json()
+            // ]);
+              
+
+
+            // console.log(responseCollectingEventJson);
+            // console.log(responseLocalityJson);
+            // console.log(responseMethodJson);
+            // console.log(responseSpecimenAttributesJson);
+            // console.log(responseSpecimenBioAttributesJson);
+            // console.log(responseSpecimenDetLabelsJson);
+            // console.log(responseSpecimenMiscCodesJson);
+            // console.log(responseGeoReferenceJson);
+
+            
+
             setSpecimenDetails({specimenId: responseJson.SpecimenID, groupName: responseJson.SpecimenGroupName, collectingEventID: responseJson.CollectingEventID})
-            console.log(responseCollectingEventJson)
+            // console.log(responseCollectingEventJson)
             console.log("check")
         } catch (e){
             console.log(e)

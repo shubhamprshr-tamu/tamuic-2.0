@@ -3,7 +3,9 @@ import express, { Express, Request, Response, response } from "express";
 import path from "path";
 import cors from "cors";
 import { db } from './database/sequelize';
-import { userRouter, specimenRouter, collectingEventRouter } from "./routes/apiroutes";
+import { userRouter, specimenRouter, collectingEventRouter, localityRouter, geoReferenceRouter,
+  specimenAttributesRouter, specimenBioAttributesRouter, specimenDetLabelsRouter,
+  specimenMiscCodesRouter  } from "./routes/apiroutes";
 
 
 dotenv.config();
@@ -27,6 +29,19 @@ app.use('/api/specimen', specimenRouter);
 app.use('/api/collectingEvent', collectingEventRouter);
 
 app.use('/api/users', userRouter);
+
+app.use('/api/locality', localityRouter);
+
+app.use('/api/geoReference', geoReferenceRouter);
+
+app.use('/api/specimenAttributes', specimenAttributesRouter);
+
+app.use('/api/specimenBioAttributes', specimenBioAttributesRouter);
+
+app.use('/api/specimenDetLabels', specimenDetLabelsRouter);
+
+app.use('/api/specimenMiscCodes', specimenMiscCodesRouter);
+
 
 const port = process.env.APP_PORT || 8000;
 
