@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from './components/Login';
-import HomePage from './components/Home';
+import HomePage from './components/Home/Home';
 import MyForm from './components/CollectingEvent/CollectingEvent';
-import MainBody from './components/MainBody';
+import MainBody from './components/Home/MainBody';
 import NewGeography from './components/Geography/NewGeography';
 import GeoReferencing from './components/Geography/GeoReferencing';
 

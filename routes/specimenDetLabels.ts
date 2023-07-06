@@ -3,9 +3,9 @@ import { db } from '../database/sequelize';
 const router = Router()
 
 router.get('/specimenId/:specimenId',  async (req: Request, res: Response) => { // Need to add remaining API calls 
-    const specimenId = req?.params?.specimenId.slice(1);
+    const specimenId = req?.params?.specimenId;
     try {
-        const dbResp = await db.models.SpecimenDetLabels.findOne({ where: { SpecimenID: specimenId } });
+        const dbResp = await db.models.SpecimenDetLabels.findOne({where: {SpecimenID: specimenId}})
         if (dbResp) {
           res.send(dbResp.toJSON());
         } else {
@@ -13,7 +13,7 @@ router.get('/specimenId/:specimenId',  async (req: Request, res: Response) => { 
         }
       } catch (error) {
         console.error(error);
-        res.sendStatus(500); // Internal server error
+        res.status(500).send("Internal server error"); // Internal server error
       }
 })
 

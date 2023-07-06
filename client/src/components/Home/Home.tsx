@@ -3,8 +3,8 @@ import { Container, Link, Typography, Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import NavigationBar from './NavigationBar';
-import './css/Home.css';
+import NavigationBar from '../NavigationBar';
+import './../css/Home.css';
 
 const HomePage = () => {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Link, Typography } from '@mui/material';
-import ViewSpecimen from './ViewSpecimen';
-import './css/Table.css'
+import ViewSpecimen from '../Specimen/ViewSpecimen';
+import './../css/Table.css'
 
 type MainContentProps = {
   setViewSpecimen: React.Dispatch<React.SetStateAction<boolean>>;
